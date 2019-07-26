@@ -40,6 +40,13 @@
             var countryCode= document.getElementById('countryCode').value;
             window.open("https://api.whatsapp.com/send?phone="+countryCode+phNum); 
         }
+        document.getElementById("phnum")
+            .addEventListener("keyup", function(event) {
+            event.preventDefault();
+            if (event.keyCode === 13) {
+                sendMessage();
+            }
+        });
     </script>
 </body>
 </html>
