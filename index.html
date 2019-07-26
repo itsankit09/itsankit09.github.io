@@ -1,1 +1,41 @@
-hii
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        body{
+            text-align: center;
+        }
+        #phnum{
+            height: 30px;
+            width: 200px;
+        }
+        button{
+            margin: 20px;
+        }
+        p{
+            background-color: yellow
+        }
+    </style>
+    <p>
+        Please do not enter 91 or 0 if you want to message any number in india.
+        If you want to send message to some other country add country code without <b>+</b> symbol.
+    </p>
+    <span><b>+</b></span><input type="text" id="phnum" placeholder="Enter 10 digit number and country code except 91" maxlength="12"/>
+    <br>
+    <button onclick="sendMessage()">Message</button>
+    <script>
+        function sendMessage(){
+            var phNum=document.getElementById('phnum').value
+            if(phNum.length!=12)
+                window.open("https://api.whatsapp.com/send?phone=91"+phNum+"&text=&source=&data="); 
+            else
+                window.open("https://api.whatsapp.com/send?phone="+phNum+"&text=&source=&data="); 
+        }
+    </script>
+</body>
+</html>
