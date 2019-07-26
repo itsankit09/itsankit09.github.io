@@ -14,6 +14,10 @@
             height: 30px;
             width: 200px;
         }
+        #countryCode{
+            height: 30px;
+            width: 50px;
+        }
         button{
             margin: 20px;
         }
@@ -25,16 +29,16 @@
         Please do not enter 91 or 0 if you want to message any number in india.
         If you want to send message to some other country add country code without <b>+</b> symbol.
     </p>
-    <span><b>+</b></span><input type="text" id="phnum" placeholder="Enter 10 digit number and country code except 91" maxlength="12"/>
+    <span><b>+</b></span>
+    <input type="text" id="countryCode" placeholder="Country code" value="91" maxlength="2"/>
+    <input type="text" id="phnum" placeholder="Enter 10 digit number" maxlength="10"/>
     <br>
     <button onclick="sendMessage()">Message</button>
     <script>
         function sendMessage(){
             var phNum=document.getElementById('phnum').value
-            if(phNum.length!=12)
-                window.open("https://api.whatsapp.com/send?phone=91"+phNum+"&text=&source=&data="); 
-            else
-                window.open("https://api.whatsapp.com/send?phone="+phNum+"&text=&source=&data="); 
+            var countryCode= document.getElementById('countryCode').value;
+            window.open("https://api.whatsapp.com/send?phone="+countryCode+phNum); 
         }
     </script>
 </body>
